@@ -7,6 +7,7 @@ img.addEventListener('click',function(){
     changeImage();
     showButton();
     fadeOutImage();
+    fortune()
 })
 
 function changeImage(){
@@ -23,22 +24,41 @@ function fadeOutImage() {
         img.classList.add("fade-out");
       }, 2000);
 }
+
+let fortuneList = [
+    "You are seriously seeking wisdom from a cookie?",
+    "Even this cookie questions its own existence.",
+    "You think therefore... you overthink.",
+    "You will discover nothing. And it will be profound.",
+    "The cookie sees all. It just doesnt care.",
+    "Your destiny has been outsourced.",
+    "If life gives you lemons, question why it didnt give cookies."
+]
+
+function fortune(){
+    while (fortuneList.length > 0){
+        const random = Math.floor(Math.random() * fortuneList.length);
+        console.log(fortuneList[random])
+        fortuneList.splice(random, 1)
+        return
+    }
+}
+
+
+/*
+while fortunelist is greater than 0
+    get random index from array
+    log it
+    remove that index from array
+    go again
+*/
+
+
 /*
 text for empty array:
   "You've exhausted the cookie. Are you proud of yourself?",
   "No more wisdom for you. Go live a little.",
   "Even the cookie needs a break sometimes.",*/
-
-/*
-list of fortune cookie ideas:
-"You are seriously seeking wisdom from a cookie?"
-"Even this cookie questions its own existence."
-"You think therefore... you overthink."
-"You will discover nothing. And it will be profound."
-"The cookie sees all. It just doesn’t care."
-"Your destiny has been outsourced."
-"If life gives you lemons, question why it didn’t give cookies."
-*/
 
 
 /*
@@ -51,4 +71,6 @@ The cookie judges in silence...
 "Each click shatters another piece of the cookie’s fragile ego.
 you are breaking the cookie...and its heart
 */
+
+
 
