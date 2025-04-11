@@ -6,7 +6,6 @@ img.addEventListener('click',function(){
     crunch.play();
     changeImage();
     showButton();
-    fadeOutImage();
     fortune();
     btn();
 })
@@ -20,11 +19,11 @@ function showButton(){
 }
 
 
-function fadeOutImage() {
+/*function fadeOutImage() {
     setTimeout(() => {
         img.classList.add("fade-out");
       }, 2000);
-}
+}*/
 
 let fortuneList = [
     "You are seriously seeking wisdom from a cookie?",
@@ -36,10 +35,10 @@ let fortuneList = [
     "If life gives you lemons, question why it didnt give cookies."
 ]
 
-
+let displayText = document.querySelector('.fortuneText')
 
 function fortune(){
-    let displayText = document.querySelector('.fortuneText')
+
     if(fortuneList.length > 0){
         while (fortuneList.length > 0){
             const random = Math.floor(Math.random() * fortuneList.length);
@@ -63,8 +62,9 @@ let btnText = [
     "You are breaking the cookie...and its heart"
 ]
 
+let extraText = document.querySelector('.extraText');
 function btn(){
-    let extraText = document.querySelector('.extraText');
+
 
     if(btnText.length > 0){
         while (btnText.length > 0){
@@ -78,3 +78,12 @@ function btn(){
     }
 
 }
+
+function reset(){
+    newBtn.style.display = 'none'
+    img.src = "cookie.png";
+    displayText.innerHTML = "";
+    extraText.innerHTML = "";
+}
+
+newBtn.addEventListener("click", reset)
