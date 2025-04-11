@@ -36,41 +36,28 @@ let fortuneList = [
 ]
 
 function fortune(){
-    while (fortuneList.length > 0){
-        const random = Math.floor(Math.random() * fortuneList.length);
-        console.log(fortuneList[random])
-        fortuneList.splice(random, 1)
-        return
+    if(fortuneList.length > 0){
+        while (fortuneList.length > 0){
+            const random = Math.floor(Math.random() * fortuneList.length);
+            console.log(fortuneList[random])
+            fortuneList.splice(random, 1)
+            return
+        }
+    } else {
+        console.log("You've exhausted the cookie. Are you proud of yourself?") 
+        console.log("No more wisdom for you. Go live a little.")
     }
+
 }
 
-
-/*
-while fortunelist is greater than 0
-    get random index from array
-    log it
-    remove that index from array
-    go again
-*/
-
-
-/*
-text for empty array:
-  "You've exhausted the cookie. Are you proud of yourself?",
-  "No more wisdom for you. Go live a little.",
-  "Even the cookie needs a break sometimes.",*/
-
-
-/*
-options under button:
-"This is not how enlightenment works."
-"The cookie is disappointed that you are disappointed."
-The cookie judges in silence...
-"The next fortune may or may not help. Probably not."
-"You keep pushing the button. Who’s really in control here?"
-"Each click shatters another piece of the cookie’s fragile ego.
-you are breaking the cookie...and its heart
-*/
-
+let btnText = [
+    "This is not how enlightenment works.",
+    "The cookie is disappointed that you are disappointed.",
+    "The cookie judges in silence...",
+    "The next fortune may or may not help. Probably not.",
+    "You keep pushing the button. Who is really in control here?",
+    "Each click shatters another piece of the cookies fragile ego.",
+    "You are breaking the cookie...and its heart"
+]
 
 
