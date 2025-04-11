@@ -7,7 +7,8 @@ img.addEventListener('click',function(){
     changeImage();
     showButton();
     fadeOutImage();
-    fortune()
+    fortune();
+    btn();
 })
 
 function changeImage(){
@@ -35,17 +36,19 @@ let fortuneList = [
     "If life gives you lemons, question why it didnt give cookies."
 ]
 
+
+
 function fortune(){
+    let displayText = document.querySelector('.fortuneText')
     if(fortuneList.length > 0){
         while (fortuneList.length > 0){
             const random = Math.floor(Math.random() * fortuneList.length);
-            console.log(fortuneList[random])
+            displayText.innerHTML = fortuneList[random]
             fortuneList.splice(random, 1)
             return
         }
     } else {
-        console.log("You've exhausted the cookie. Are you proud of yourself?") 
-        console.log("No more wisdom for you. Go live a little.")
+        displayText.innerHTML = "You've exhausted the cookie. Are you proud of yourself?"
     }
 
 }
@@ -60,4 +63,18 @@ let btnText = [
     "You are breaking the cookie...and its heart"
 ]
 
+function btn(){
+    let extraText = document.querySelector('.extraText');
 
+    if(btnText.length > 0){
+        while (btnText.length > 0){
+            const random = Math.floor(Math.random() * fortuneList.length);
+            extraText.innerHTML = btnText[random];
+            btnText.splice(random, 1)
+            return
+        }
+    } else {
+        extraText.innerHTML = "No more wisdom for you. Go live a little."
+    }
+
+}
