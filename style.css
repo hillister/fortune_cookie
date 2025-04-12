@@ -22,13 +22,16 @@ h1 {
 }
 
 .fortuneText {
-    background-color: white;
+    visibility: visible;
     text-align: center;
     padding: 15px;
     font-size: 17px;
     margin-bottom: 80px;
 }
 
+.fortuneTextHidden {
+    visibility: hidden;    
+}
 
 #img1 {
     width: auto;

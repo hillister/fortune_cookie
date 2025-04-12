@@ -8,6 +8,8 @@ img.addEventListener('click',function(){
     showButton();
     fortune();
     btn();
+    displayText.style.backgroundColor = 'white'
+
 })
 
 function changeImage(){
@@ -83,6 +85,7 @@ function reset(){
     newBtn.style.display = 'none'
     img.src = "cookie.png";
     displayText.innerHTML = "";
+    displayText.style.background = 'none'
     extraText.innerHTML = "";
 }
 
