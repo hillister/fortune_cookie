@@ -3,6 +3,7 @@ let newBtn = document.getElementById('newBtn');
 let crunch  = new Audio('crunch.mp3')
 let displayText = document.querySelector('.fortuneText')
 let extraText = document.querySelector('.extraText');
+let breakText = document.getElementById('breakText');
 
 let fortuneList = [
     "You are seriously seeking wisdom from a cookie?",
@@ -33,6 +34,7 @@ function breakCookie(){
     showButton();
     fortune();
     btn();
+    breakText.style.display = 'none';
     displayText.style.backgroundColor = 'white' 
     disableCLick();
 }
@@ -72,6 +74,7 @@ function btn(){
         }
     } else {
         extraText.innerHTML = "No more wisdom for you. Go live a little."
+        newBtn.style.display = 'none'
     }
 }
 
@@ -81,6 +84,7 @@ function reset(){
     displayText.innerHTML = "";
     displayText.style.background = 'none'
     extraText.innerHTML = "";
+    img.addEventListener('click', breakCookie)
 }
 
 newBtn.addEventListener("click", reset)
