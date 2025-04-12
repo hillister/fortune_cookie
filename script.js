@@ -1,31 +1,8 @@
 let img = document.getElementById('img1');
 let newBtn = document.getElementById('newBtn');
 let crunch  = new Audio('crunch.mp3')
-
-img.addEventListener('click',function(){
-    crunch.play();
-    changeImage();
-    showButton();
-    fortune();
-    btn();
-    displayText.style.backgroundColor = 'white'
-
-})
-
-function changeImage(){
-    img.src = 'broken.png';
-}
-
-function showButton(){
-    newBtn.style.display = 'inline';
-}
-
-
-/*function fadeOutImage() {
-    setTimeout(() => {
-        img.classList.add("fade-out");
-      }, 2000);
-}*/
+let displayText = document.querySelector('.fortuneText')
+let extraText = document.querySelector('.extraText');
 
 let fortuneList = [
     "You are seriously seeking wisdom from a cookie?",
@@ -37,22 +14,6 @@ let fortuneList = [
     "If life gives you lemons, question why it didnt give cookies."
 ]
 
-let displayText = document.querySelector('.fortuneText')
-
-function fortune(){
-
-    if(fortuneList.length > 0){
-        while (fortuneList.length > 0){
-            const random = Math.floor(Math.random() * fortuneList.length);
-            displayText.innerHTML = fortuneList[random]
-            fortuneList.splice(random, 1)
-            return
-        }
-    } else {
-        displayText.innerHTML = "You've exhausted the cookie. Are you proud of yourself?"
-    }
-
-}
 
 let btnText = [
     "This is not how enlightenment works.",
@@ -64,10 +25,44 @@ let btnText = [
     "You are breaking the cookie...and its heart"
 ]
 
-let extraText = document.querySelector('.extraText');
+img.addEventListener('click', breakCookie)
+
+function breakCookie(){
+    crunch.play();
+    changeImage();
+    showButton();
+    fortune();
+    btn();
+    displayText.style.backgroundColor = 'white' 
+    disableCLick();
+}
+
+function disableCLick(){
+    img.removeEventListener('click', breakCookie);
+}
+
+function changeImage(){
+    img.src = 'broken.png';
+}
+
+function showButton(){
+    newBtn.style.display = 'inline';
+}
+
+function fortune(){
+    if(fortuneList.length > 0){
+        while (fortuneList.length > 0){
+            const random = Math.floor(Math.random() * fortuneList.length);
+            displayText.innerHTML = fortuneList[random]
+            fortuneList.splice(random, 1)
+            return
+        }
+    } else {
+        displayText.innerHTML = "You've exhausted the cookie. Are you proud of yourself?"
+    }
+}
+
 function btn(){
-
-
     if(btnText.length > 0){
         while (btnText.length > 0){
             const random = Math.floor(Math.random() * fortuneList.length);
@@ -78,7 +73,6 @@ function btn(){
     } else {
         extraText.innerHTML = "No more wisdom for you. Go live a little."
     }
-
 }
 
 function reset(){
